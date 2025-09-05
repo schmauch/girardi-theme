@@ -1,0 +1,13 @@
+{
+    "name": "schmauch/girardi-theme",
+    "type": "yii2-extension",
+    "autoload": {
+        "psr-4": {
+            "schmauch\\girardiTheme\\": ""
+        }
+    },
+    "require": {
+        "schmauch/yii2-accessible-menu": "*",
+        "yiisoft/yii2-jui": "~2.0.0"
+    }
+}
