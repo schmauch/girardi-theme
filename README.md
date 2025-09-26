@@ -34,4 +34,5 @@ Add the theme to the view component:
     ],
 ```
 
-
+### Copy all files from the `@vendor/schmauch/girardi-theme/assets` directory to 
+the '@web/themes/girardi-theme/assets` directory.
