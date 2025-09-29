@@ -58,7 +58,7 @@ $girardiAsset = GirardiAssets::register($this);
 <footer>
     <div class="container" style="position: relative;">
         <a id="macher" href="https://www.schreiner.ch/" target="_blank">
-            <?= Html::img('@web' . $girardiAsset->baseUrl . '/images/macher.svg') ?>
+            <?= Html::img($this->theme->getUrl('assets/images/macher.svg')) ?>
         </a>
         <div id="footer" class="row g-5">
             
@@ -72,16 +72,16 @@ $girardiAsset = GirardiAssets::register($this);
                 <span>E-Mail: <a href="mailto:info@girardi.ch">info@girardi.ch</a></span>
                 <span>
                     <a href="https://www.instagram.com/arthurgirardiag/" target="_blank" style="display: inline-block; width: 1em; height: auto; color: white;">
-                        <?php include(\Yii::getAlias('@webroot') . $girardiAsset->baseUrl . '/images/instagram.svg'); ?>
+                        <?php include $this->theme->getBasePath() .'assets/images/instagram.svg'; ?>
                     </a>&nbsp;
                     <a href="https://www.pinterest.com/arthur_girardi_ag/" target="_blank" style="display: inline-block; width: 1em; height: auto; color: white;">
-                        <?php include(\Yii::getAlias('@webroot') . $girardiAsset->baseUrl . '/images/pinterest.svg'); ?>
+                        <?php include $this->theme->getBasePath() .'assets/images/pinterest.svg'; ?>
                     </a>&nbsp;
                     <a href="https://www.facebook.com/ArthurGirardiAG/" target="_blank" style="display: inline-block; width: 1em; height: auto; color: white;">
-                        <?php include(\Yii::getAlias('@webroot') . $girardiAsset->baseUrl . '/images/facebook.svg'); ?>
+                        <?php include $this->theme->getBasePath() . 'assets/images/facebook.svg'; ?>
                     </a>&nbsp;
                     <a href="https://www.linkedin.com/company/arthur-girardi-ag" target="_blank" style="display: inline-block; width: 1em; height: auto; color: white;">
-                        <?php include(\Yii::getAlias('@webroot') . $girardiAsset->baseUrl . '/images/linkedin.svg'); ?>
+                        <?php include $this->theme->getBasePath() . 'assets/images/linkedin.svg'; ?>
                     </a>                
                 </span>
             </div>
