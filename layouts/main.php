@@ -26,25 +26,28 @@ $girardiAsset = GirardiAssets::register($this);
 <?php $this->beginBody() ?>
 
 <header>
-    <?= Html::img($this->theme->getUrl('assets/images/Logo_GirardiSchreinerei.svg'), ['width' => 400, 'height' => 'auto']); ?>
-    <?php
-        echo AccessibleMenu::widget([
-        'id' => 'mainMenu',
-        'items' => [
-            ['label' => 'Home', 'url' => ['site/index']],
-            ['label' => 'Über uns', 'url' => ['site/about'], 'items' => [
-                ['label' => 'Philosophie', 'url' => ['site/philosophy']]
-            ]],
-            ['label' => 'Produkte', 'url' => ['site/products'], 'items' => [
-                ['label' => 'Küchen', 'url' => ['/foo']],
-                ['label' => 'Badzimmer', 'url' => ['/bar']],
-                ['label' => 'Möbel', 'url' => ['/baz']],
-            ]],
-        ],
-        'activateParents' => true,
-        'activateItems' => true,
-    ]);
-    ?>
+    <div class="container">
+        <?= Html::img($this->theme->getUrl('assets/images/Logo_GirardiSchreinerei.svg'), ['width' => 400, 'height' => 'auto']); ?>
+        <?php
+            echo AccessibleMenu::widget([
+            'id' => 'mainMenu',
+            'items' => [
+                ['label' => 'Home', 'url' => ['site/index']],
+                ['label' => 'Über uns', 'url' => ['site/about'], 'items' => [
+                    ['label' => 'Philosophie', 'url' => ['site/philosophy']]
+                ]],
+                ['label' => 'Produkte', 'url' => ['site/products'], 'items' => [
+                    ['label' => 'Küchen', 'url' => ['/foo']],
+                    ['label' => 'Badzimmer', 'url' => ['/bar']],
+                    ['label' => 'Möbel', 'url' => ['/baz']],
+                ]],
+            ],
+            'activateParents' => true,
+            'activateItems' => true,
+            'options' => ['class' => 'slide'],
+        ]);
+        ?>
+    </div>
 </header>
 
 <main role="main" class="flex-shrink-0">
