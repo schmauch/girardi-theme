@@ -34,5 +34,10 @@ Add the theme to the view component:
     ],
 ```
 
-### Copy all files from the `@vendor/schmauch/girardi-theme/assets` directory to 
+### Copy required files
+
+Copy all files from the `@vendor/schmauch/girardi-theme/assets` directory to 
 the '@web/themes/girardi-theme/assets` directory.
+
+### Check dependencies
+Make shure the `AssetManager` is correctly configured.
