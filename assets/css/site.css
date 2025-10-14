@@ -33,11 +33,59 @@ body {
     height: auto;
 }
 
+#navBar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 main {
     flex-grow: 1;
     background-color: white;
 }
 
+/* search box */
+#searchBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: stretch;
+    position: relative;
+}
+
+#searchBox input {
+    display: block;
+    width: 2em;
+    height: 2em;
+    padding: 0.25em;
+    border: none;
+    background-image: url('../images/magnifying-glass.svg');
+    background-size: contain;
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+
+#searchBox input:focus,
+#searchBox input:valid {
+    flex-grow: 3;
+    width: auto;
+    margin: 0 0.5em;
+    border: 1px solid #999999;
+    background-image: none;
+}
+
+#searchBox button {
+    display: none;
+    margin: 0 0.5em;
+    border: 1px solid #999999;
+    background-color: #999999;
+}
+
+#searchBox input:focus ~ button, 
+#searchBox input:valid ~ button {
+    display: block;
+    flex-grow: 1;
+}
 
 /* ------------------------------- MAIN MENU ------------------------------- */
 #mainMenu {
@@ -286,7 +334,7 @@ footer {
     position: absolute;
     width: auto;
     height: 8em;
-    top: -4.5em;
+    top: -5em;
     right: 0;
     padding: 0;
     vertical-align: bottom;

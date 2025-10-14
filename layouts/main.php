@@ -30,25 +30,32 @@ $girardiAsset = GirardiAssets::register($this);
         <div id="logo">
         <?= Html::img($this->theme->getUrl('assets/images/Logo_GirardiSchreinerei.svg'), ['width' => '100%','height' => 'auto']); ?>
         </div>
-        <?php
-            echo AccessibleMenu::widget([
-            'id' => 'mainMenu',
-            'items' => [
-                ['label' => 'Home', 'url' => ['site/index']],
-                ['label' => 'Über uns', 'url' => ['site/about'], 'items' => [
-                    ['label' => 'Philosophie', 'url' => ['site/philosophy']]
-                ]],
-                ['label' => 'Produkte', 'url' => ['site/products'], 'items' => [
-                    ['label' => 'Küchen', 'url' => ['/foo']],
-                    ['label' => 'Badzimmer', 'url' => ['/bar']],
-                    ['label' => 'Möbel', 'url' => ['/baz']],
-                ]],
-            ],
-            'activateParents' => true,
-            'activateItems' => true,
-            'options' => ['class' => 'slide'],
-        ]);
-        ?>
+        <div id="navBar">
+            <?php
+                echo Html::beginTag('form', ['id' => 'searchBox']);
+                echo Html::input('text', 'search', '', ['pattern' => '.*\S.*', 'required' => 'required']);
+                echo Html::button('suchen', ['type' => 'submit']);
+                echo Html::endTag('form');
+                
+                echo AccessibleMenu::widget([
+                'id' => 'mainMenu',
+                'items' => [
+                    ['label' => 'Home', 'url' => ['site/index']],
+                    ['label' => 'Über uns', 'url' => ['site/about'], 'items' => [
+                        ['label' => 'Philosophie', 'url' => ['site/philosophy']]
+                    ]],
+                    ['label' => 'Produkte', 'url' => ['site/products'], 'items' => [
+                        ['label' => 'Küchen', 'url' => ['/foo']],
+                        ['label' => 'Badzimmer', 'url' => ['/bar']],
+                        ['label' => 'Möbel', 'url' => ['/baz']],
+                    ]],
+                ],
+                'activateParents' => true,
+                'activateItems' => true,
+                'options' => ['class' => 'slide'],
+            ]);
+            ?>
+        </div>
     </div>
 </header>
 
