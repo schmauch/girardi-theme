@@ -75,16 +75,16 @@ $girardiAsset = GirardiAssets::register($this);
                 <span>E-Mail: <a href="mailto:info@girardi.ch">info@girardi.ch</a></span>
                 <span>
                     <a href="https://www.instagram.com/arthurgirardiag/" target="_blank" style="display: inline-block; width: 1em; height: auto; color: white;">
-                        <?php include $this->theme->getBasePath() .'assets/images/instagram.svg'; ?>
+                        <?php include $this->theme->getBasePath() .'/assets/images/instagram.svg'; ?>
                     </a>&nbsp;
                     <a href="https://www.pinterest.com/arthur_girardi_ag/" target="_blank" style="display: inline-block; width: 1em; height: auto; color: white;">
-                        <?php include $this->theme->getBasePath() .'assets/images/pinterest.svg'; ?>
+                        <?php include $this->theme->getBasePath() .'/assets/images/pinterest.svg'; ?>
                     </a>&nbsp;
                     <a href="https://www.facebook.com/ArthurGirardiAG/" target="_blank" style="display: inline-block; width: 1em; height: auto; color: white;">
-                        <?php include $this->theme->getBasePath() . 'assets/images/facebook.svg'; ?>
+                        <?php include $this->theme->getBasePath() . '/assets/images/facebook.svg'; ?>
                     </a>&nbsp;
                     <a href="https://www.linkedin.com/company/arthur-girardi-ag" target="_blank" style="display: inline-block; width: 1em; height: auto; color: white;">
-                        <?php include $this->theme->getBasePath() . 'assets/images/linkedin.svg'; ?>
+                        <?php include $this->theme->getBasePath() . '/assets/images/linkedin.svg'; ?>
                     </a>                
                 </span>
             </div>
