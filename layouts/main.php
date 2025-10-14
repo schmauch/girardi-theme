@@ -22,12 +22,14 @@ $girardiAsset = GirardiAssets::register($this);
         <link rel="stylesheet" type="text/css" href="/css/no-js.css" />
     </noscript>
 </head>
-<body class="d-flex flex-column h-100">
+<body>
 <?php $this->beginBody() ?>
 
 <header>
     <div class="container">
-        <?= Html::img($this->theme->getUrl('assets/images/Logo_GirardiSchreinerei.svg'), ['width' => 400, 'height' => 'auto']); ?>
+        <div id="logo">
+        <?= Html::img($this->theme->getUrl('assets/images/Logo_GirardiSchreinerei.svg'), ['width' => '100%','height' => 'auto']); ?>
+        </div>
         <?php
             echo AccessibleMenu::widget([
             'id' => 'mainMenu',
@@ -50,7 +52,7 @@ $girardiAsset = GirardiAssets::register($this);
     </div>
 </header>
 
-<main role="main" class="flex-shrink-0">
+<main role="main">
     <div class="container">
         <?php //Alert::widget() ?>
         <?= $content ?>
@@ -59,39 +61,38 @@ $girardiAsset = GirardiAssets::register($this);
 
 
 <footer>
-    <div class="container" style="position: relative;">
+    <div class="container">
         <a id="macher" href="https://www.schreiner.ch/" target="_blank">
             <?= Html::img($this->theme->getUrl('assets/images/macher.svg')) ?>
         </a>
-        <div id="footer" class="row g-5">
-            
-            <div class="footer-col col-12 col-md-5 col-xl-4 my-3">
+        <div id="footer">
+            <div class="footer-col">
                 <span>Arthur Girardi AG</span>
                 <span>Maienbrunnenstrasse 5</span>
                 <span>8908 Hedingen</span>
             </div>
-            <div class="footer-col col-6 col-md-4 col-xl-5 my-3">
+            <div class="footer-col">
                 <span>Tel: <a href="tel:+41433226699">+41 43 322 66 99</a></span>
                 <span>E-Mail: <a href="mailto:info@girardi.ch">info@girardi.ch</a></span>
-                <span>
-                    <a href="https://www.instagram.com/arthurgirardiag/" target="_blank" style="display: inline-block; width: 1em; height: auto; color: white;">
+                <span id="footer-som">
+                    <a href="https://www.instagram.com/arthurgirardiag/" target="_blank">
                         <?php include $this->theme->getBasePath() .'/assets/images/instagram.svg'; ?>
                     </a>&nbsp;
-                    <a href="https://www.pinterest.com/arthur_girardi_ag/" target="_blank" style="display: inline-block; width: 1em; height: auto; color: white;">
+                    <a href="https://www.pinterest.com/arthur_girardi_ag/" target="_blank">
                         <?php include $this->theme->getBasePath() .'/assets/images/pinterest.svg'; ?>
                     </a>&nbsp;
-                    <a href="https://www.facebook.com/ArthurGirardiAG/" target="_blank" style="display: inline-block; width: 1em; height: auto; color: white;">
+                    <a href="https://www.facebook.com/ArthurGirardiAG/" target="_blank">
                         <?php include $this->theme->getBasePath() . '/assets/images/facebook.svg'; ?>
                     </a>&nbsp;
-                    <a href="https://www.linkedin.com/company/arthur-girardi-ag" target="_blank" style="display: inline-block; width: 1em; height: auto; color: white;">
+                    <a href="https://www.linkedin.com/company/arthur-girardi-ag" target="_blank">
                         <?php include $this->theme->getBasePath() . '/assets/images/linkedin.svg'; ?>
                     </a>                
                 </span>
             </div>
-            <div class="footer-col col-6 col-md-3 col-xl-3 my-3">
+            <div class="footer-col">
                 <span><a href="?gdpr=settings">Datenschutz</a></span>
-                <span>Impressum</span>
-                <span>Sitemap</span>
+                <span><a href="impressum">Impressum</a></span>
+                <span><a href="sitemap">Sitemap</a></span>
             </div>
         </div>
     </div>
