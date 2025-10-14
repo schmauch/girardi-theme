@@ -3,12 +3,40 @@
 	src: url(../fonts/AVGARDR2.otf) format('truetype');
 }
 
+html, body {
+    min-height: 100%;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
 body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
     background-color: #ffffff;
     font-family: avantgarde;
     letter-spacing: 0.05em;
+    text-align: center;
 }
 
+.container {
+    position: relative;
+    max-width: 96em;
+    margin: 1em;
+    text-align: left;
+}
+
+#logo {
+    width: 24em;
+    max-width: 80vw;
+    height: auto;
+}
+
+main {
+    flex-grow: 1;
+    background-color: white;
+}
 
 
 /* ------------------------------- MAIN MENU ------------------------------- */
@@ -174,8 +202,8 @@ body {
 }
 #mainMenu:target .accessibleMenuList,
 #mainMenu.no-js:target .accessibleMenuList {
-    display: block !important;
-    background-color: black !imnportant;
+    display: block;
+    background-color: black;
 }
 
 #mainMenu:target > .accessibleMenuList .accessibleMenuButton,
@@ -199,19 +227,38 @@ body {
 
 /* --------------------------------- FOOTER -------------------------------- */
 footer {
-    margin-top: 4cm !important;
+    margin-top: 6em;
+    padding: 0;
     background-color: black;
     color: white;
-    font-size: 0.8em;
 }
 
 #footer {
     position: relative;
-    padding-top: 1.8cm !important;
-    padding:0;
+    display: flex;
+    flex-wrap: wrap;
+    /*padding-top: 1.8cm !important;*/
+    padding: 0;
+    font-size: 0.8em;
+    line-height: 2em;
 }
 
-#footer .row div:last-of-type {
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+    padding: 0;
+}
+
+.footer-col:first-of-type {
+    width: 100%;
+}
+
+.footer-col:nth-of-type(2) {
+    flex-grow: 1;
+}
+
+.footer-col:last-of-type {
     text-align: right;
 }
 
@@ -223,30 +270,68 @@ footer {
     color: white;
 }
 
+#footer-som a {
+    text-decoration: none;
+}
+
+#footer-som svg {
+    display: inline-block;
+    width: auto;
+    height: 1.5em;
+    vertical-align: text-top;
+}
+
 #macher {
     display: block;
     position: absolute;
-    width: 3.5cm;
-    height: 2.982cm;
-    top: -1.491cm;
-    right: 1.5cm;
+    width: auto;
+    height: 8em;
+    top: -4.5em;
+    right: 0;
     padding: 0;
     vertical-align: bottom;
     box-shadow: 0em 0em 0.5em rgba(0, 0, 0, 0.5);
-    /*transform: translateY(-50%);*/
 }
 
 #macher img {
-    width: 3.5cm;
-    height: 2.982cm;
+    height: 100%;
+    width: auto;
 }
-
 
 /* #############################################################################
                                  MEDIA QUERIES
 ############################################################################# */
 
-@media screen and (min-width: 1200px) {
+/*###################################### 36em ############################### */
+@media screen and (min-width: 36em) {
+
+    #footer {
+        flex-wrap: nowrap;
+        padding-top: 4em;
+    }
+    
+    .footer-col:first-of-type {
+        width: auto;
+        flex-grow: 1;
+    }
+    
+    .footer-col:last-of-type {
+        flex-grow:  1;
+    }
+    
+    #macher {
+        right: 3em;
+    }
+}
+
+/*###################################### 72em ############################### */
+
+@media screen and (min-width: 72em) {
+
+    .container {
+        max-width: 70em;
+        margin: 1em auto; 
+    }
 
     #mainMenu {
         position: relative;
@@ -357,13 +442,40 @@ footer {
         color: white
     }
     
-    
-    #footer .footer-col {
-        text-align: justify;
-        text-align-last: justify;
+    .footer-col,
+    .footer-col:first-of-type,
+    .footer-col:last-of-type {
+        flex-direction: row;
+        width: auto;
     }
     
-    #footer span {
-        display: inline-block;
+    .footer-col:first-of-type {
+        flex-grow: 5;
+        justify-content: flex-start;
+        padding-left: 0;
+        padding-right: 1em;
+        text-align: left;
     }
+    
+    .footer-col:nth-of-type(2) {
+        flex-grow: 4;
+        justify-content: center;
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    .footer-col:last-of-type {
+        flex-grow: 3;
+        justify-content: flex-end;
+        padding-left: 1em;
+        padding-right: 0;
+        text-align: right;
+    }
+    .footer-col span {
+        margin: 0 0.5em;
+    } 
 }
+
+/*###################################### 96em ############################### */
+
