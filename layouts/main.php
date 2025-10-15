@@ -25,6 +25,11 @@ $girardiAsset = GirardiAssets::register($this);
 <body>
 <?php $this->beginBody() ?>
 
+<a class="skiplink" href="#main">
+    Direkt zum Inhalt springen
+</a>
+
+
 <header>
     <div class="container">
         <div id="logo">
@@ -34,7 +39,7 @@ $girardiAsset = GirardiAssets::register($this);
             <?php
                 echo Html::beginTag('form', ['id' => 'searchBox']);
                 echo Html::input('text', 'search', '', ['pattern' => '.*\S.*', 'required' => 'required']);
-                echo Html::button('suchen', ['type' => 'submit']);
+                echo Html::button('suchen', ['type' => 'submit', 'tabIndex' => -1]);
                 echo Html::endTag('form');
                 
                 echo AccessibleMenu::widget([
@@ -59,7 +64,7 @@ $girardiAsset = GirardiAssets::register($this);
     </div>
 </header>
 
-<main role="main">
+<main id="main" role="main">
     <div class="container">
         <?php //Alert::widget() ?>
         <?= $content ?>

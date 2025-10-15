@@ -44,6 +44,20 @@ main {
     background-color: white;
 }
 
+.skiplink {
+    display: block;
+    position: fixed;
+    top: -100%;
+    width: 100%;
+    padding: 1em;
+    background-color: black;
+    color: white;
+}
+
+.skiplink:focus {
+    top: 0;
+}
+
 /* search box */
 #searchBox {
     display: flex;
@@ -82,7 +96,8 @@ main {
 }
 
 #searchBox input:focus ~ button, 
-#searchBox input:valid ~ button {
+#searchBox input:valid ~ button,
+#searchBox input:invalid ~ button:focus {
     display: block;
     flex-grow: 1;
 }
