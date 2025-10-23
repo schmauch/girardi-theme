@@ -75,7 +75,7 @@ main {
     border: none;
     background-image: url('../images/magnifying-glass.svg');
     background-size: contain;
-    background-position: left center;
+    background-position: right center;
     background-repeat: no-repeat;
 }
 
@@ -88,16 +88,27 @@ main {
     background-image: none;
 }
 
-#searchBox button {
-    display: none;
+#searchBox > button {
+    display: block;
+    width: 0;
+    padding: 0;
+    border: none;
+    overflow: hidden;
+}
+
+#searchBox button:focus,
+#searchBox > input:focus ~ button,
+#searchBox > input:valid ~ button {
+    width: auto;
     margin: 0 0.5em;
-    border: 1px solid #999999;
+    padding: 0.25em;
+    border: 1px solid red;
     background-color: #999999;
 }
 
+#searchBox > button:focus,
 #searchBox input:focus ~ button, 
-#searchBox input:valid ~ button,
-#searchBox input:invalid ~ button:focus {
+#searchBox input:valid ~ button {
     display: block;
     flex-grow: 1;
 }

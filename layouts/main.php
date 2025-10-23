@@ -39,7 +39,7 @@ $girardiAsset = GirardiAssets::register($this);
             <?php
                 echo Html::beginTag('form', ['id' => 'searchBox']);
                 echo Html::input('text', 'search', '', ['pattern' => '.*\S.*', 'required' => 'required']);
-                echo Html::button('suchen', ['type' => 'submit',]);
+                echo Html::button('suchen', ['type' => 'submit']);
                 echo Html::endTag('form');
                 
                 echo AccessibleMenu::widget([
