@@ -1,6 +1,13 @@
 @font-face {
 	font-family: 'avantgarde';
-	src: url(../fonts/AVGARDR2.otf) format('truetype');
+	src: url(../fonts/AVGARDR2.otf) format('opentype'),
+	     url(../fonts/AVGARDR2.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'avantgarde-semibold';
+	src: url(../fonts/AVGARDD2.otf) format('opentype'),
+	     url(../fonts/AVGARDD2.ttf) format('truetype');
 }
 
 html, body {
@@ -298,6 +305,14 @@ main {
 #mainMenu.no-js:target a {
     color: white;
 }
+
+/* --------------------------------- CONTENT ------------------------------- */
+h1 {
+    font-family: avantgarde-semibold;
+    color: black;
+    font-weight: normal;
+}
+
 
 /* --------------------------------- FOOTER -------------------------------- */
 footer {
