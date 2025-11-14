@@ -45,14 +45,14 @@ $girardiAsset = GirardiAssets::register($this);
                 echo AccessibleMenu::widget([
                 'id' => 'mainMenu',
                 'items' => [
-                    ['label' => 'Home', 'url' => ['site/index']],
-                    ['label' => 'Über uns', 'url' => ['site/about'], 'items' => [
-                        ['label' => 'Philosophie', 'url' => ['site/philosophy']]
+                    ['label' => 'Home', 'url' => ['/cms/site/render', 'url' => 'index']],
+                    ['label' => 'Über uns', 'url' => ['/cms/site/render', 'url' => 'ueber-uns'], 'items' => [
+                        ['label' => 'Philosophie', 'url' => ['/cms/site/render', 'url' => 'philosophie']]
                     ]],
-                    ['label' => 'Produkte', 'url' => ['site/products'], 'items' => [
-                        ['label' => 'Küchen', 'url' => ['/foo']],
-                        ['label' => 'Badzimmer', 'url' => ['/bar']],
-                        ['label' => 'Möbel', 'url' => ['/baz']],
+                    ['label' => 'Produkte', 'url' => ['/cms/site/render', 'url' => 'produkte'], 'items' => [
+                        ['label' => 'Küchen', ['/cms/site/render', 'url' => 'kuechen']],
+                        ['label' => 'Badzimmer', 'url' => ['/cms/site/render', 'url' => 'badezimmer']],
+                        ['label' => 'Möbel', 'url' => ['/cms/site/render', 'url' => 'moebel']],
                     ]],
                 ],
                 'activateParents' => true,
