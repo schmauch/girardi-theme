@@ -10,36 +10,68 @@
 	     url(../fonts/AVGARDD2.ttf) format('truetype');
 }
 
-html {
-    min-height: 100vh;
+html, body {
+    min-height: 100%;
+    background-color: white;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     display: flex;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
     flex-direction: column;
-    justify-content: stretch;
-    background-color: white;
+    height: 100vh;
+    /*background-color: #ffffff;*/
+    font-family: avantgarde;
+    letter-spacing: 0.05em;
     text-align: center;
-    font-family: 'avantgarde';
+}
+
+.container {
+    position: relative;
+    max-width: 96em;
+    margin: 1em;
+    text-align: left;
+}
+
+#logo {
+    position: relative;
+    width: 18em;
+    max-width: 80vw;
+    height: auto;
+}
+
+#logo svg {
+    width: 100%;
+    height: auto;
+    color: white;
+    mix-blend-mode: difference;
 }
 
 #jumbotron {
     position: absolute;
+    width: 100vw;
+    height: 66.666vw;
+    top: 0;
+    left: 0;
+    background-image: url(/images/weihnachten2020q.jpg);
+    background-size: cover;
 }
 
-.wrapper {
-    position: relative;
-    max-width: 96em;
-    margin: auto;
-    text-align: left;
+#navBar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+main {
+    flex-grow: 1;
+    /*background-color: white;*/
 }
 
 .skiplink {
     display: block;
-    position: fixed ;
+    position: fixed;
     top: -100%;
     width: 100%;
     padding: 1em;
@@ -51,52 +83,13 @@ body {
     top: 0;
 }
 
-/* --------------------------------- HEADER -------------------------------- */
-header {
-    display: flex;
-    width: 100%;
-    margin: 0;
-    padding: 1em;
-    top: 0;
-    justify-content: space-between;
-    z-index: 1000000;
-    overflow: visible;
-}
-
-#navBar {
-    display: flex;
-    position: fixed;
-    top: 0;
-    right: 0;
-    margin-top: 1em;
-    text-align: right;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-#logo {
-    position: relative;
-    height: auto;
-    text-align: left;
-    mix-blend-mode: difference;
-}
-
-#logo svg {
-    width: auto;
-    height: 6em;
-}
-
-
-/* ------------------------------- SEARCH BOX ------------------------------ */
+/* search box */
 #searchBox {
     display: flex;
-    position: relative;
-    margin: 1.5em 0;
-    padding: 0.9em;
     flex-direction: row;
     justify-content: flex-end;
     align-items: stretch;
-    background-color: white;
+    position: relative;
 }
 
 #searchBox input {
@@ -134,7 +127,7 @@ header {
     width: auto;
     margin: 0 0.5em;
     padding: 0.25em;
-    border: none;
+    border: 1px solid red;
     background-color: #999999;
 }
 
@@ -145,13 +138,11 @@ header {
     flex-grow: 1;
 }
 
-
 /* ------------------------------- MAIN MENU ------------------------------- */
 #mainMenu {
-    margin: 1em 1em 1em 1em;
+    margin: 0;
     padding: 0;
     text-align: right;
-    background-color: white;
 }
 
 #mainMenu .no-js-open,
@@ -170,13 +161,10 @@ header {
 } 
 
 #mainMenu > .accessibleMenuButton {
-    display: block;
-    width: 2.5em;
-    height: 2.5em;
-    padding: 0 1em;
+    padding: 0.5em;
+    border: none;
     background-color: white;
     color: black;
-    text-align: center !important;
     font-size: 1.5em;
     line-height: 1.5em;
     text-align: left;
@@ -336,79 +324,36 @@ header {
     color: white;
 }
 
-
 /* --------------------------------- CONTENT ------------------------------- */
-main {
-    margin: 0 1em;
-    flex-grow: 3;
-    text-align: left;
-}
-
 h1 {
-    margin-top: 1em;
-    font-family: avantgarde;
+    font-family: avantgarde-semibold;
     color: black;
-    font-size: 3em;
     font-weight: normal;
-}
-
-h2 {
-    margin-top: 1em;
-    font-family: avantgarde;
-    color: black;
-    font-size: 2em;
-    font-weight: normal;
-}
-
-
-/* --------------------------------- TEASER -------------------------------- */
-.bigTeaser {
-    display: flex;
-}
-
-.bigTeaser:nth-of-type(2n) {
-    flex-direction: row-reverse;
-}
-
-.teaserImage {
-    width: 66.666%;
-    margin-right: 2em;
-}
-
-.teaserImage img {
-    width: 100%;
-    height: auto;
-    vertical-align: bottom;
-}
-
-.teaserText {
-    background-color: red;
 }
 
 
 /* --------------------------------- FOOTER -------------------------------- */
 footer {
-    position: relative;
     margin-top: 6em;
     padding: 0;
     background-color: black;
     color: white;
-    text-align: left;
 }
 
 #footer {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
-    padding: 1.25em;
+    /*padding-top: 1.8cm !important;*/
+    padding: 0;
     font-size: 0.8em;
     line-height: 2em;
-    background-color: black;
 }
 
 .footer-col {
     display: flex;
     flex-direction: column;
-    margin-top: 3em;
+    margin-top: 1em;
     padding: 0;
 }
 
@@ -448,8 +393,8 @@ footer {
     position: absolute;
     width: auto;
     height: 8em;
-    top: -4em;
-    right: 1em;
+    top: -5em;
+    right: 0;
     padding: 0;
     vertical-align: bottom;
     box-shadow: 0em 0em 0.5em rgba(0, 0, 0, 0.5);
@@ -490,13 +435,9 @@ footer {
 
 @media screen and (min-width: 72em) {
 
-    .wrapper {
+    .container {
         max-width: 70em;
-        margin: auto;
-    }
-    
-    #searchBox {
-        padding: 0.3em;
+        margin: 1em auto; 
     }
 
     #mainMenu {
@@ -644,5 +585,4 @@ footer {
 }
 
 /*###################################### 96em ############################### */
-
 
