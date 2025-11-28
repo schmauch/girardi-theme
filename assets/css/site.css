@@ -16,10 +16,10 @@ html {
 
 body {
     display: flex;
+    flex-direction: column;
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    flex-direction: column;
     justify-content: stretch;
     background-color: white;
     text-align: center;
@@ -54,24 +54,25 @@ body {
 /* --------------------------------- HEADER -------------------------------- */
 header {
     display: flex;
+    justify-content: space-between;
     width: 100%;
     margin: 0;
     padding: 1em;
     top: 0;
-    justify-content: space-between;
     z-index: 1000000;
     overflow: visible;
 }
 
 #navBar {
     display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
     position: fixed;
     top: 0;
     right: 0;
     margin-top: 1em;
     text-align: right;
-    justify-content: flex-end;
-    align-items: center;
 }
 
 #logo {
@@ -79,50 +80,53 @@ header {
     height: auto;
     text-align: left;
     mix-blend-mode: difference;
+    color: black;
 }
 
 #logo svg {
     width: auto;
-    height: 6em;
+    height: 8em;
 }
 
 
 /* ------------------------------- SEARCH BOX ------------------------------ */
 #searchBox {
     display: flex;
-    position: relative;
-    margin: 1.5em 0;
-    padding: 0.9em;
     flex-direction: row;
     justify-content: flex-end;
     align-items: stretch;
+    position: relative;
+    width: auto;
+    height: calc(3.5em + 4px);
+    margin: 0 1em;
+    padding: 0;
+    border: none;
     background-color: white;
 }
 
 #searchBox input {
     display: block;
-    width: 2em;
-    height: 2em;
-    padding: 0.25em;
-    border: none;
+    position: relative;
+    width: calc(3.5em + 6px);
+    height: calc(3.5em +8px);
+    border: 1px solid purple;
     background-image: url('../images/magnifying-glass.svg');
-    background-size: contain;
-    background-position: right center;
+    background-size: 3.5em 3.5em;
+    background-position: center center;
     background-repeat: no-repeat;
+
 }
 
 #searchBox input:focus,
 #searchBox input:valid {
-    flex-grow: 3;
+    flex-grow: 1;
     width: auto;
     margin: 0 0.5em;
-    border: 1px solid #999999;
     background-image: none;
 }
 
 #searchBox > button {
-    display: block;
-    width: 0;
+    display: none;
     padding: 0;
     border: none;
     overflow: hidden;
@@ -131,24 +135,19 @@ header {
 #searchBox button:focus,
 #searchBox > input:focus ~ button,
 #searchBox > input:valid ~ button {
+    display: block;
     width: auto;
     margin: 0 0.5em;
-    padding: 0.25em;
+    padding: 0.25em 1em;
     border: none;
     background-color: #999999;
+    color: white;
+    vertical-align: baseline;
 }
-
-#searchBox > button:focus,
-#searchBox input:focus ~ button, 
-#searchBox input:valid ~ button {
-    display: block;
-    flex-grow: 1;
-}
-
 
 /* ------------------------------- MAIN MENU ------------------------------- */
 #mainMenu {
-    margin: 1em 1em 1em 1em;
+    margin: 1em;
     padding: 0;
     text-align: right;
     background-color: white;
@@ -174,6 +173,7 @@ header {
     width: 2.5em;
     height: 2.5em;
     padding: 0 1em;
+    border: 1px solid black;
     background-color: white;
     color: black;
     text-align: center !important;
@@ -191,13 +191,15 @@ header {
 #mainMenu > .accessibleMenuButton[aria-expanded=false] {
     display: inline-block;
     position: relative;
+    width: 2.5em;
+    height: 2.5em;
     padding: 0.5em;
-    border: none;
+    border: 1px solid black;
     background-color: white;
     color: black;
     font-size: 1.5em;
-    line-height: 1.5em;
-    text-align: left;
+    line-height: 1em;
+    text-align: center;
     vertical-align: top;
 }
 
@@ -344,35 +346,50 @@ main {
     text-align: left;
 }
 
+.news {
+    padding: 1em;
+    background-color: #dedede;
+    color: black;
+}
+
 h1 {
     margin-top: 1em;
     font-family: avantgarde;
-    color: black;
     font-size: 3em;
     font-weight: normal;
 }
 
 h2 {
-    margin-top: 1em;
+    margin: 1em 0;
     font-family: avantgarde;
-    color: black;
     font-size: 2em;
     font-weight: normal;
 }
 
 
+.cta {
+    display: inline-block;
+    padding: 0.5em;
+    background-color: #666666;
+    color: white;
+}
+
 /* --------------------------------- TEASER -------------------------------- */
 .bigTeaser {
     display: flex;
+    flex-direction: column;
+    margin: 2em 0;
+    padding-bottom: 2em;
+    border-bottom: 1px solid black;
 }
 
-.bigTeaser:nth-of-type(2n) {
-    flex-direction: row-reverse;
-}
-
-.teaserImage {
-    width: 66.666%;
-    margin-right: 2em;
+.smallTeaser {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-end;
+    padding: 1em;
+    background-color: #dedede;
 }
 
 .teaserImage img {
@@ -381,10 +398,69 @@ h2 {
     vertical-align: bottom;
 }
 
-.teaserText {
-    background-color: red;
+.bigTeaser h2 {
+    font-size: 3em;
 }
 
+.teaserText p {
+    font-size: 1.5em;
+    hyphens: auto;
+}
+
+.smallTeaser .teaserText p {
+    font-size: 1em;
+}
+
+
+/* ------------------------------- REFERENCES ------------------------------- */
+
+.refImages {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    background-color: #dedede;
+}
+
+.refImages .bigImg {
+    position: relative;
+    margin-right: 1em;
+}
+
+.refImgGroup {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-end;
+}
+
+.refImages .refImg {
+    width: calc(50% - 0.5em);
+    margin: 0.5em 0.5em 0 0;
+}
+
+.refImages img {
+    width: 100%;
+    height: auto;
+}
+
+
+.refImages .refImg:first-of-type:nth-last-of-type(2n),
+.refImages .refImg:first-of-type:nth-last-of-type(2n) ~.refImg {
+    width: calc(50% - 0.5em);
+}
+
+/*.refImages .refImg:first-of-type:nth-last-of-type(3n),
+.refImages .refImg:first-of-type:nth-last-of-type(3n) ~ .refImg,*/
+.refImages .refImg:nth-of-type(2n + 3):nth-last-of-type(3n),
+.refImages .refImg:nth-of-type(2n + 3):nth-last-of-type(3n) ~ .refImg{
+    width: calc(33.333% - 0.5em);
+}
+
+.refImages .refImg:first-of-type:last-of-type,
+.refImages .refImg:first-of-type:nth-last-of-type(2),
+.refImages .refImg:first-of-type:nth-last-of-type(2) + .refImg {
+    width: 100%;
+}
 
 /* --------------------------------- FOOTER -------------------------------- */
 footer {
@@ -467,6 +543,17 @@ footer {
 /*###################################### 36em ############################### */
 @media screen and (min-width: 36em) {
 
+    #navBar {
+        flex-direction: row;
+        align-items: flex-end;
+        height: 8em;
+    }
+    
+    #searchBox {
+        align-self: flex-end;
+        margin-bottom: 1em;
+    }
+
     #footer {
         flex-wrap: nowrap;
         padding-top: 4em;
@@ -496,16 +583,51 @@ footer {
     }
     
     #searchBox {
-        padding: 0.3em;
+        align-self: flex-end;
+        height: 2em;
+        margin: 0 0 1.5em 0;
+        padding: 0;
+    }
+    
+    #searchBox input {
+        width: 2em;
+        height: 2em;
+        margin: 0;
+        padding: 0.5em;
+        border: none;
+        background-size: 2em 2em;
+    }
+    
+    #searchBox input:focus,
+    #searchBox input:valid {
+        align-self: stretch;
+        height: auto;
+        border: 1px solid black;
+    }
+
+    #searchBox button:focus,
+    #searchBox > input:focus ~ button,
+    #searchBox > input:valid ~ button {
+        display: block;
+        align-self: stretch;
+        width: auto;
+        height: auto
+        margin: 0 0.5em;
+        padding: 0.5em 1em;
+        border: none;
+        background-color: #999999;
+        color: white;
+        vertical-align: baseline;
     }
 
     #mainMenu {
         position: relative;
+        align-self: flex-end;
     }
     
     #mainMenu li {
         display: block;
-        width: auto;    
+        width: auto;
     }
     
     #mainMenu > .accessibleMenuButton[aria-expanded] {
@@ -608,6 +730,73 @@ footer {
         color: white
     }
     
+    /* ----------------------------- TEASER ----------------------------------*/
+    .bigTeaser {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+    
+    .bigTeaser:nth-of-type(2n) {
+        flex-direction: row-reverse;
+    }
+    
+    .smallTeaser {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+    
+    .teaserImage {
+        width: 66.666%;
+        width: 100%;
+        height: auto;
+    }
+    
+    .smallTeaser .teaserImage {
+        width: 50%;
+        height: auto;
+    }
+    
+    .teaserImage img {
+        width: 100%;
+        height: auto;
+        vertical-align: bottom;
+    }
+    
+    .teaserText {
+        width: 33.333%;
+        margin-left: 2em;
+    }
+    
+    .smallTeaser .teaserText {
+        width: 50%;
+    }
+    
+    .bigTeaser:nth-of-type(2n) .teaserText {
+        margin-left: 0;
+        margin-right: 2em;
+    }
+    
+    .teaserText p:last-of-type {
+        margin-bottom: 0;
+    }
+
+    
+    /* --------------------------- REFERENCES --------------------------------*/
+    .refImages {
+        flex-direction: row;
+    }
+    
+    .refImages .bigImg {
+        width: 66.666%;
+    }
+    
+    .refImages .refImgGroup {
+        width: 33.333%;
+    }
+    
+    
+    /* ----------------------------- FOOTER ----------------------------------*/
+
     .footer-col,
     .footer-col:first-of-type,
     .footer-col:last-of-type {
