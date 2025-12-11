@@ -14,6 +14,8 @@ class GirardiAssets extends AssetBundle
         ['css/print.css', 'media' => 'print'],
     ];
     public $js  = [];
-    public $depends = [];
+    public $depends = [
+        'yii\bootstrap5\BootstrapAsset',
+    ];
     public $jsOptions = [];
 }

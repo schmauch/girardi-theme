@@ -26,10 +26,6 @@ body {
     font-family: 'avantgarde';
 }
 
-#jumbotron {
-    position: absolute;
-}
-
 .wrapper {
     position: relative;
     max-width: 96em;
@@ -57,7 +53,7 @@ header {
     justify-content: space-between;
     width: 100%;
     margin: 0;
-    padding: 1em;
+    padding: 0;
     top: 0;
     z-index: 1000000;
     overflow: visible;
@@ -67,25 +63,24 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: stretch;
     position: fixed;
     top: 0;
     right: 0;
-    margin-top: 1em;
-    text-align: right;
+    margin: 1em;
+    padding: 0;
+    border: none;
 }
 
 #logo {
     position: relative;
     height: auto;
     text-align: left;
-    mix-blend-mode: difference;
-    color: black;
 }
 
 #logo svg {
     width: auto;
-    height: 8em;
+    height: 10em;
 }
 
 
@@ -97,39 +92,43 @@ header {
     align-items: stretch;
     position: relative;
     width: auto;
-    height: calc(3.5em + 4px);
-    margin: 0 1em;
+    height: auto;
+    margin: 0;
     padding: 0;
-    border: none;
     background-color: white;
 }
 
-#searchBox input {
+#searchBoxInput {
     display: block;
     position: relative;
-    width: calc(3.5em + 6px);
-    height: calc(3.5em +8px);
-    border: 1px solid purple;
+    width: 3.25em;
+    height: 3.25em;
+    margin: 0;
+    padding: 0;
+    border: 1px solid black;
     background-image: url('../images/magnifying-glass.svg');
-    background-size: 3.5em 3.5em;
+    background-size: 4em 4em;
     background-position: center center;
     background-repeat: no-repeat;
 
 }
 
-#searchBox input:focus,
-#searchBox input:valid {
+#searchBoxInput:focus,
+#searchBoxInput:valid {
     flex-grow: 1;
     width: auto;
-    margin: 0 0.5em;
+    margin: 0;
     background-image: none;
 }
 
 #searchBox > button {
-    display: none;
+    display: block;
+    width: 0;
+    height: 0;
     padding: 0;
     border: none;
     overflow: hidden;
+    vertical-align: bottom;
 }
 
 #searchBox button:focus,
@@ -137,17 +136,19 @@ header {
 #searchBox > input:valid ~ button {
     display: block;
     width: auto;
-    margin: 0 0.5em;
-    padding: 0.25em 1em;
+    height: auto;
+    margin-left: 0.5em;
+    padding: 0 1em 0 1em;
     border: none;
     background-color: #999999;
     color: white;
-    vertical-align: baseline;
 }
 
 /* ------------------------------- MAIN MENU ------------------------------- */
 #mainMenu {
-    margin: 1em;
+    width: auto;
+    height: auto;
+    margin: 0;
     padding: 0;
     text-align: right;
     background-color: white;
@@ -158,27 +159,36 @@ header {
     display: none;
 }
 
-#mainMenu.no-js .no-js-open {
-    display: block;
-    color: black;
+#mainMenu.no-js:target {
+    border: 4px solid blue;
+    overflow-y: scroll;
 }
 
+#mainMenu.no-js .no-js-open,
 #mainMenu.no-js .no-js-dismiss {
     display: block;
-    color: white;
-} 
+    width: 1.6em;
+    height: 1.6em;
+    margin: 0.5em 0 0 0;
+    padding: 0;
+    text-align: center;
+    line-height: 0.4em;
+    color: black;
+    border: 1px solid black;
+}
 
 #mainMenu > .accessibleMenuButton {
     display: block;
-    width: 2.5em;
-    height: 2.5em;
-    padding: 0 1em;
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0.5em 0 0 0;
+    padding: 0;
     border: 1px solid black;
     background-color: white;
     color: black;
-    text-align: center !important;
+    text-align: center;
     font-size: 1.5em;
-    line-height: 1.5em;
+    line-height: 1em;
     text-align: left;
     vertical-align: top;
 }
@@ -191,14 +201,11 @@ header {
 #mainMenu > .accessibleMenuButton[aria-expanded=false] {
     display: inline-block;
     position: relative;
-    width: 2.5em;
-    height: 2.5em;
-    padding: 0.5em;
+    width: 2.15em;
+    height: 2.15em;
     border: 1px solid black;
     background-color: white;
     color: black;
-    font-size: 1.5em;
-    line-height: 1em;
     text-align: center;
     vertical-align: top;
 }
@@ -206,11 +213,14 @@ header {
 #mainMenu > .accessibleMenuButton[aria-expanded=true] {
     display: block;
     position: fixed;
+    width: 2em;
+    height: 2em;
     right: 80vw;
     top: 0;
+    margin-top: 0;
     background-color: black;
     color: white;
-
+    text-align: center;
 }
 
 #mainMenu > .accessibleMenuList {
@@ -284,6 +294,7 @@ header {
     display: block;
     position: fixed;
     z-index: 1000000;
+    border: 4px solid purple;
 }
 
 #mainMenu.no-js .no-js-open {
@@ -341,7 +352,7 @@ header {
 
 /* --------------------------------- CONTENT ------------------------------- */
 main {
-    margin: 0 1em;
+    margin: 0 1em 0 1.5em;
     flex-grow: 3;
     text-align: left;
 }
@@ -546,14 +557,28 @@ footer {
     #navBar {
         flex-direction: row;
         align-items: flex-end;
-        height: 8em;
+        height: 6.25em;
+    }
+    
+    #mainMenu.no-js .no-js-open,
+    #mainMenu.no-js .no-js-dismiss,
+    #mainMenu > .accessibleMenuButton {
+        margin: 0 0 0 0.5em;
     }
     
     #searchBox {
         align-self: flex-end;
-        margin-bottom: 1em;
     }
 
+    #mainMenu > .accessibleMenuButton[aria-expanded=true] {
+        right: 60vw;
+    }
+    
+    #mainMenu > .accessibleMenuList {
+        position: fixed;
+        width: 60vw;
+    }
+    
     #footer {
         flex-wrap: nowrap;
         padding-top: 4em;
@@ -581,153 +606,18 @@ footer {
         max-width: 70em;
         margin: auto;
     }
-    
-    #searchBox {
-        align-self: flex-end;
-        height: 2em;
-        margin: 0 0 1.5em 0;
-        padding: 0;
-    }
-    
-    #searchBox input {
-        width: 2em;
-        height: 2em;
-        margin: 0;
-        padding: 0.5em;
-        border: none;
-        background-size: 2em 2em;
-    }
-    
-    #searchBox input:focus,
-    #searchBox input:valid {
-        align-self: stretch;
-        height: auto;
-        border: 1px solid black;
-    }
-
-    #searchBox button:focus,
-    #searchBox > input:focus ~ button,
-    #searchBox > input:valid ~ button {
-        display: block;
-        align-self: stretch;
-        width: auto;
-        height: auto
-        margin: 0 0.5em;
-        padding: 0.5em 1em;
-        border: none;
-        background-color: #999999;
-        color: white;
-        vertical-align: baseline;
-    }
-
     #mainMenu {
         position: relative;
         align-self: flex-end;
     }
     
-    #mainMenu li {
-        display: block;
-        width: auto;
-    }
-    
-    #mainMenu > .accessibleMenuButton[aria-expanded] {
-        display: none !important;
-        position: relative;
-    }
-    
-    #mainMenu > .accessibleMenuButton,
-    #mainMenu .accessibleMenuButton,
-    #mainMenu .accessibleMenuList .accessibleMenuButton {
-        background-color: white;
-        color: black;
-    }
-    
-    #mainMenu .accessibleMenuButton:hover,
-    #mainMenu .accessibleMenuButton:focus {
-        background-color: #999999;
+    #mainMenu > .accessibleMenuButton[aria-expanded=true] {
+        right: 40vw;
     }
     
     #mainMenu > .accessibleMenuList {
-        display: flex !important;
-        justify-content: flex-end;
-        position: relative;
-        width: 100%;
-        text-align: right;
-        background-color: white;
-    }
-    
-    #mainMenu.no-js > .accessibleMenuList {
-        display: none !important;
-    }
- 
-    #mainMenu > .accessibleMenuList > li {
-        display: block;
-        width: auto;
-        white-space: nowrap;
-    }
-    
-    #mainMenu a {
-        color: black;
-    }
-    
-    #mainMenu a:hover,
-    #mainMenu a:focus {
-        background-color: #999999;
-        text-decoration: underline;
-    }
-    
-    #mainMenu > .accessibleMenuList .accessibleMenuList {
-        position: absolute;
-        top: 100%;
-        background-color: white;
-        box-shadow: 0.2em 0.5em 0.5em rgba(0, 0, 0, 0.5);
-    }
-           
-    #mainMenu > .accessibleMenuList .accessibleMenuList .accessibleMenuList {
-        position: relative;
-        box-shadow: none;
-    }
-    #mainMenu .accessibleMenuList .accessibleMenuList li {
-        padding-left: 0.5em;
-    }
-    
-    #mainMenu:target,
-    #mainMenu.no-js:target {
-        display: block;
         position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        background-color: black;
-        text-align: left;
-        z-index: 100000;
-    }
-    
-    #mainMenu:target > .no-js-dismiss,
-    #mainMenu.no-js:target > .no-js-dismiss {
-        top: 0;
-        right: auto;
-        left: 0;
-        padding: 0 0.5em;
-    }
-
-    #mainMenu:target > .accessibleMenuList,
-    #mainMenu.no-js:target > .accessibleMenuList {
-        display: flex !important;
-        flex-direction: row;
-        justify-content: space-evenly;
-        align-items: start;
-        position: relative;
-        background-color: black;
-        text-align: left;
-    }
-
-    #mainMenu:target > .accessibleMenuList > li {
-        display: block;
-        width: auto;
-        background-color: black;
-        color: white
+        width: 40vw;
     }
     
     /* ----------------------------- TEASER ----------------------------------*/
@@ -834,4 +724,27 @@ footer {
 
 /*###################################### 96em ############################### */
 
+@media screen and (min-width: 96em) {
+    
+    #mainMenu > .accessibleMenuButton[aria-expanded=true] {
+        right: 20vw;
+    }
+    
+    #mainMenu > .accessibleMenuList {
+        position: fixed;
+        width: 20vw;
+    }
+}
 
+/*###################################### 108em ############################### */
+
+@media screen and (min-width: 108em) {
+    
+    header {
+        position: absolute;
+    }
+    
+    main {
+        margin-top: 2em;
+    }
+}
